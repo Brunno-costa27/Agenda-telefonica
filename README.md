@@ -70,7 +70,7 @@ $ node app.js
 # O servidor inciará na porta:8080 - acesse http://localhost:8080
 
 ---
-
+```
 ## 🛠 Tecnologias
 
 
@@ -101,4 +101,4 @@ $ node app.js
 Feito por brunno costa 👋🏽 [Entre em contato!](sbrunno.costa@gmail.com)
 
 ---
-##
+
