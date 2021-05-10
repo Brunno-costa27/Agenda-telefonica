@@ -98,7 +98,7 @@ $ node app.js
 ## 📝 Licença
 
 
-Feito por brunno costa 👋🏽 [Entre em contato!](sbrunno.costa@gmail.com)
+Feito por brunno
 
 ---
 
