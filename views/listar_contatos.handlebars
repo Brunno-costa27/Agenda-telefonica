@@ -1,0 +1,68 @@
+<header class="navbar navbar-dark sticky-top  flex-md-nowrap p-0 shadow"  style="background-color: #3134e9ce; height:60px;">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"></a>
+  <button  style="display: none;;" class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" onclick="mostra()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar" aria-label="Pesquisar">
+  <a href="#"><button type="button" class="btn btn-secondary" id="buscar" onclick="pesquisar()">Procurar</button></a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+    <a class="nav-link" href="/login" style="color: red; font-size:20px;">Voltar</a>
+    </li>
+  </ul>
+</header>
+
+<h2 style="margin-top: 10px;"><p class="text-center">Contatos</p></h2>
+<p></p>
+<div class="table-responsive" style="margin-left: 120px;" >
+        <table class="table table-hover" id="vai">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NOME</th>
+              <th>CONTATO</th>
+              <th>DATA</th>
+            </tr>
+          </thead>
+          <tbod id="resultado">
+            {{#each usuario}}
+               <tr>
+                
+                <td>{{this.id}}</td> 
+                <td>{{this.usuario}}</td>
+                <td>{{this.senha}}</td>
+                <td>{{#formatDate this.createdAt}} {{/formatDate}} <a  style="margin-left: 80px;" href="/apagar/{{id}}"><button  type="button" class="btn btn-danger">Apagar</button></a> <a style="margin-left: 80px;"  href="/editar/{{id}}/{{usuario}}/{{senha}}"><button type="button" class="btn btn-warning">Editar</button></a> <a href="/visualizar/{{id}}/{{usuario}}/{{senha}}"><button type="button" class="btn btn-info" style="margin-left: 80px;">Visualizar</button></a> </td>
+                 
+                </tr>
+                {{/each}} 
+                
+          </tbody>
+          </table>
+         <script>
+           document.getElementById("buscar").addEventListener("click", pesquisar);
+           function pesquisar(){
+             var coluna = 3;
+             var Filtrar,Tabela,tr,td,i;
+             Filtrar = document.getElementById("pesquisa");
+             Filtrar = Filtrar.value.toUpperCase();
+             Tabela = document.getElementById("resultado");
+             tr = document.getElementsByTagName("tr");
+             th = document.getElementsByTagName("th");
+
+             for(i = 0;i<tr.length;i++){
+
+                td =  tr[i].getElementsByTagName("td")[coluna];
+
+                if(td){
+
+                  if(td.innerHTML.toUpperCase().indexOf(Filtrar) > -1){
+
+                    tr[i].style.display = "";
+                  }else{
+                    tr[i].style.display = "none";
+                  }
+                }
+             }
+           }
+         </script>
+    </div>
